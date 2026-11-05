@@ -1,0 +1,918 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ScD Advocacia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Advocacia para famílias de pessoas autistas em Carutapera/MA: BPC, escola, plano de saúde, SUS e isenções de impostos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: blocos de cor como peças de montar; faixas de largura total alternando branco, azul e amarelo; tema claro único por escolha da marca. */
+:root {
+  --white: #ffffff;
+  --paper: #f4f7fd;
+  --ink: #0d1a3a;
+  --muted: #47526e;
+  --line: #d9e1f0;
+  --blue: #1846c7;
+  --blue-deep: #0b2a7e;
+  --blue-soft: #e6edfc;
+  --red: #d5232c;
+  --red-deep: #a8141c;
+  --yellow: #ffc629;
+  --yellow-soft: #fff4d1;
+  --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --wrap: 1160px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--white); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.08; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 6px; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.band { padding-block: clamp(56px, 8vw, 96px); }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--blue);
+}
+.eyebrow::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--red); }
+.section-head { display: grid; gap: 14px; max-width: 720px; margin-bottom: clamp(32px, 5vw, 48px); }
+.section-head h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
+.section-head p { color: var(--muted); font-size: 1.125rem; max-width: 62ch; }
+
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 24px; border-radius: 999px; border: 0;
+  font-family: var(--body); font-weight: 700; font-size: 1.05rem; text-decoration: none; cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-red { background: var(--red); color: var(--white); box-shadow: 0 6px 0 var(--red-deep); }
+.btn-red:hover { background: #e02f38; }
+.btn-red:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--red-deep); }
+.btn-ghost { background: var(--white); color: var(--blue-deep); border: 2px solid var(--blue); }
+.btn-ghost:hover { background: var(--blue-soft); }
+.btn svg { width: 22px; height: 22px; flex: none; }
+
+/* Topo */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--white); border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-logo { display: grid; place-items: center; width: 64px; height: 48px; border-radius: 12px; background: #0b0b0c; overflow: hidden; flex: none; }
+.brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+.portrait { width: 100%; max-width: 320px; height: auto; border-radius: var(--r-md); display: block; }
+.brand-mark { display: grid; grid-template-columns: repeat(2, 14px); gap: 3px; }
+.brand-mark span { width: 14px; height: 14px; border-radius: 4px; }
+.brand-mark span:nth-child(1) { background: var(--blue); }
+.brand-mark span:nth-child(2) { background: var(--red); border-radius: 4px 4px 4px 10px; }
+.brand-mark span:nth-child(3) { background: var(--yellow); border-radius: 10px 4px 4px 4px; }
+.brand-mark span:nth-child(4) { background: var(--blue-deep); }
+.brand-name { font-family: var(--display); font-weight: 800; font-size: 1.25rem; line-height: 1; }
+.brand-name small { display: block; font-family: var(--body); font-weight: 400; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; margin-top: 4px; }
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav a { text-decoration: none; font-weight: 700; color: var(--ink); font-size: 0.98rem; }
+.nav a:hover { color: var(--blue); }
+.nav .btn { min-height: 44px; padding: 0 18px; font-size: 0.95rem; box-shadow: 0 4px 0 var(--red-deep); }
+@media (max-width: 900px) { .nav a:not(.btn) { display: none; } }
+
+/* Hero */
+.hero { background: var(--paper); border-bottom: 1px solid var(--line); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(32px, 5vw, 64px); align-items: center; padding-block: clamp(48px, 7vw, 88px); }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; }
+.hero h1 .hl { background: linear-gradient(transparent 62%, var(--yellow) 62%, var(--yellow) 92%, transparent 92%); padding-inline: 2px; }
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero-copy > p { font-size: 1.2rem; color: var(--muted); max-width: 54ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.92rem; color: var(--muted); }
+.hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+.hero-meta span::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+
+.blocks { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(64px, 9vw, 104px); gap: 12px; min-width: 0; }
+.blk { border-radius: var(--r-md); }
+.b1 { grid-column: 1 / 3; background: var(--blue); border-radius: var(--r-lg) var(--r-md) var(--r-md) var(--r-md); }
+.b2 { background: var(--yellow); border-radius: 50%; }
+.b3 { background: var(--red); border-radius: var(--r-md) var(--r-lg) var(--r-md) var(--r-md); }
+.b4 { background: var(--yellow); }
+.b5 { grid-column: 2 / 5; grid-row: 2 / 4; }
+.b6 { background: var(--blue-deep); grid-row: 3 / 5; border-radius: var(--r-md) var(--r-md) var(--r-md) var(--r-lg); }
+.b7 { grid-column: 2 / 3; background: var(--red); border-radius: 50% 50% var(--r-md) var(--r-md); }
+.b8 { grid-column: 3 / 5; background: var(--blue); border-radius: var(--r-md) var(--r-md) var(--r-lg) var(--r-md); }
+.b5 {
+  background: var(--white); border: 2px solid var(--ink); box-shadow: 8px 8px 0 var(--ink);
+  padding: clamp(16px, 2.4vw, 26px); display: grid; align-content: center; gap: 10px;
+}
+.b5 .law { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+.b5 blockquote { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.05rem, 2vw, 1.4rem); line-height: 1.22; }
+.b5 cite { font-style: normal; font-size: 0.85rem; color: var(--muted); }
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .blocks { grid-auto-rows: 72px; }
+}
+@media (max-width: 420px) { .blocks { gap: 8px; grid-auto-rows: 64px; } .b5 blockquote { font-size: 1rem; } }
+
+/* Você se identifica */
+.pains { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.pain {
+  display: grid; gap: 10px; padding: 24px; border-radius: var(--r-md);
+  background: var(--paper); border: 1px solid var(--line); min-width: 0;
+}
+.pain q { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.2; quotes: "“" "”"; }
+.pain p { color: var(--muted); font-size: 0.98rem; }
+.pain .tag { justify-self: start; font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); color: var(--blue-deep); }
+
+/* Direitos */
+.rights-band { background: var(--blue-deep); color: var(--white); }
+.rights-band .eyebrow { color: var(--yellow); }
+.rights-band .section-head p { color: #c9d5f5; }
+.rights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 960px) { .rights { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .rights { grid-template-columns: 1fr; } }
+.right {
+  display: grid; grid-template-rows: auto auto 1fr auto; gap: 14px;
+  background: var(--white); color: var(--ink); border-radius: var(--r-lg); padding: 28px; min-width: 0;
+}
+.right-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; }
+.right-icon svg { width: 28px; height: 28px; }
+.ic-blue { background: var(--blue-soft); color: var(--blue); }
+.ic-red { background: #fde6e7; color: var(--red); }
+.ic-yellow { background: var(--yellow-soft); color: #8a6200; }
+.right h3 { font-size: 1.45rem; }
+.right p { color: var(--muted); }
+.right ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 0.97rem; }
+.right li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
+.right li::before { content: ""; width: 10px; height: 10px; margin-top: 8px; border-radius: 3px; background: var(--yellow); }
+.right .law-ref { font-size: 0.82rem; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 12px; }
+
+/* Como funciona */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: step; }
+@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+.step { position: relative; display: grid; gap: 10px; padding: 28px 24px 24px; border-radius: var(--r-md); border: 2px solid var(--ink); background: var(--white); min-width: 0; }
+.step::before {
+  counter-increment: step; content: counter(step);
+  font-family: var(--display); font-weight: 800; font-size: 1.4rem;
+  width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px;
+}
+.step:nth-child(1)::before { background: var(--blue); color: var(--white); }
+.step:nth-child(2)::before { background: var(--yellow); color: var(--ink); }
+.step:nth-child(3)::before { background: var(--red); color: var(--white); }
+.step:nth-child(4)::before { background: var(--blue-deep); color: var(--white); }
+.step h3 { font-size: 1.25rem; }
+.step p { color: var(--muted); font-size: 0.98rem; }
+
+/* Documentos */
+.docs-band { background: var(--yellow-soft); border-block: 1px solid #f2dfa0; }
+.docs { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
+@media (max-width: 860px) { .docs { grid-template-columns: 1fr; } }
+.docs-intro { display: grid; gap: 16px; }
+.docs-intro h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
+.docs-intro p { color: var(--muted); font-size: 1.1rem; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tab {
+  min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid var(--ink); background: var(--white);
+  font-family: var(--body); font-weight: 700; font-size: 0.95rem; color: var(--ink); cursor: pointer;
+}
+.tab[aria-selected="true"] { background: var(--ink); color: var(--white); }
+.checklist { background: var(--white); border-radius: var(--r-lg); border: 2px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); padding: clamp(20px, 3vw, 32px); display: grid; gap: 18px; min-width: 0; }
+.check-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.check-head h3 { font-size: 1.4rem; }
+.progress { font-size: 0.9rem; font-weight: 700; color: var(--blue); font-variant-numeric: tabular-nums; }
+.bar { height: 10px; border-radius: 999px; background: var(--blue-soft); overflow: hidden; }
+.bar span { display: block; height: 100%; width: 0; background: var(--blue); border-radius: 999px; transition: width .25s ease; }
+.group-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-top: 4px; }
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.items label { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; padding: 10px 12px; border-radius: var(--r-sm); cursor: pointer; }
+.items label:hover { background: var(--paper); }
+.items input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--blue); cursor: pointer; }
+.items input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--red); }
+.check-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.check-actions .btn { min-height: 46px; font-size: 0.97rem; }
+.copy-note { font-size: 0.9rem; color: var(--blue-deep); font-weight: 700; }
+
+/* Adulto */
+.adult { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+@media (max-width: 860px) { .adult { grid-template-columns: 1fr; } }
+.adult-card { background: var(--blue); color: var(--white); border-radius: var(--r-lg); padding: clamp(24px, 4vw, 40px); display: grid; gap: 16px; }
+.adult-card h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+.adult-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.adult-card li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; }
+.adult-card li::before { content: ""; width: 14px; height: 14px; margin-top: 6px; border-radius: 4px; background: var(--yellow); }
+.adult-text { display: grid; gap: 16px; }
+.adult-text h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
+.adult-text p { color: var(--muted); font-size: 1.1rem; max-width: 58ch; }
+
+/* Dúvidas */
+.faq-band { background: var(--paper); border-top: 1px solid var(--line); }
+.faq { display: grid; gap: 12px; max-width: 860px; }
+.faq details { background: var(--white); border: 1px solid var(--line); border-radius: var(--r-md); }
+.faq summary {
+  list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr 32px; gap: 16px; align-items: center;
+  padding: 20px 22px; font-family: var(--display); font-weight: 700; font-size: 1.2rem; line-height: 1.25;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center;
+  background: var(--yellow); color: var(--ink); font-family: var(--body); font-size: 1.3rem; font-weight: 700;
+}
+.faq details[open] summary::after { content: "−"; background: var(--blue); color: var(--white); }
+.faq .answer { padding: 0 22px 22px; color: var(--muted); max-width: 66ch; }
+
+/* Sobre */
+.about { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
+.badge-card { border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line); padding: clamp(24px, 4vw, 36px); display: grid; gap: 18px; }
+.monogram { width: 84px; height: 84px; border-radius: 24px 24px 24px 8px; background: var(--red); color: var(--white); display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 2rem; }
+.badge-card h3 { font-size: 1.6rem; }
+.badge-card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 0.97rem; }
+.badge-card dt { font-weight: 700; color: var(--ink); }
+.badge-card dd { margin: 0; color: var(--muted); min-width: 0; }
+.about-text { display: grid; gap: 16px; }
+.about-text h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
+.about-text p { color: var(--muted); font-size: 1.1rem; max-width: 60ch; }
+.areas { display: flex; flex-wrap: wrap; gap: 8px; }
+.areas span { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); font-size: 0.9rem; font-weight: 700; color: var(--blue-deep); background: var(--white); }
+
+/* Contato */
+.contact-band { background: var(--red); color: var(--white); }
+.contact { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+@media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+.contact h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.contact p { font-size: 1.15rem; color: #ffe3e4; max-width: 52ch; }
+.contact-text { display: grid; gap: 18px; }
+.contact-box { background: var(--white); color: var(--ink); border-radius: var(--r-lg); padding: clamp(22px, 3vw, 32px); display: grid; gap: 16px; box-shadow: 8px 8px 0 var(--yellow); }
+.contact-row { display: grid; gap: 4px; }
+.contact-row span { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.contact-row strong { font-size: 1.15rem; user-select: all; overflow-wrap: anywhere; }
+.contact-box .btn { width: 100%; }
+.btn-white { background: var(--white); color: var(--red-deep); box-shadow: 0 6px 0 var(--red-deep); }
+.btn-white:hover { background: var(--yellow-soft); }
+
+/* Formulário de contato */
+.contact-form h3 { font-size: clamp(1.4rem, 2.6vw, 1.75rem); }
+.contact .form-note { color: var(--muted); font-size: 0.97rem; max-width: none; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 520px) { .form-grid { grid-template-columns: 1fr; } }
+.field { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.field-full { grid-column: 1 / -1; }
+.field label { font-weight: 700; font-size: 0.97rem; }
+.field label small { font-weight: 400; font-size: 0.88rem; color: var(--muted); }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 52px; padding: 12px 14px; border-radius: var(--r-sm);
+  border: 2px solid var(--muted); background: var(--white); color: var(--ink);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.4;
+}
+.field textarea { min-height: 136px; resize: vertical; }
+.field ::placeholder { color: var(--muted); opacity: 1; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--blue); outline-offset: 1px; border-radius: var(--r-sm); }
+.field [aria-invalid="true"] { border-color: var(--red-deep); background: #fff5f5; }
+.field-error { color: var(--red-deep); font-size: 0.92rem; font-weight: 700; }
+.field-error:empty { display: none; }
+.form-actions { display: grid; gap: 14px; margin-top: 4px; }
+.form-status { border-radius: var(--r-sm); font-size: 0.97rem; }
+.form-status:not(:empty) { padding: 12px 14px; background: var(--yellow-soft); border: 1px solid #f2dfa0; }
+.form-status.is-error:not(:empty) { background: #fde6e7; border-color: #f5b9bc; color: var(--red-deep); font-weight: 700; }
+.form-status a { display: inline-block; font-weight: 700; color: var(--blue-deep); overflow-wrap: anywhere; }
+
+/* Rodapé */
+footer { background: var(--ink); color: #c4cce0; font-size: 0.9rem; }
+footer .wrap { display: grid; gap: 12px; padding-block: 36px; }
+footer strong { color: var(--white); }
+.wa-float {
+  position: fixed; z-index: 40;
+  right: calc(18px + env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center;
+  background: #1f9d55; color: var(--white); box-shadow: 0 8px 24px rgba(13, 26, 58, .25); text-decoration: none;
+}
+.wa-float svg { width: 30px; height: 30px; }
+</style>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Sueli Dias Advogada, início">
+      <span class="brand-logo"><img src="logo-tea-emblema.jpg" alt="" width="404" height="280"></span>
+      <span class="brand-name">Sueli Dias<small>Advogada · ScD Advocacia</small></span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#direitos">Direitos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#documentos">Documentos</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="btn btn-red js-wa" href="#contato">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Direitos da pessoa autista</span>
+        <h1>Seu filho autista tem <span class="hl">direitos</span>. A gente explica e caminha com você.</h1>
+        <p>Advocacia em Carutapera/MA para famílias de pessoas com autismo: BPC, escola, terapia pelo SUS ou plano de saúde e isenção de impostos. Atendimento simples, pelo WhatsApp, sem você precisar entender de lei.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red js-wa" href="#contato">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#direitos">Ver quais são os direitos</a>
+        </div>
+        <div class="hero-meta">
+          <span>Carutapera e região</span>
+          <span>Crianças, jovens e adultos</span>
+          <span>Atendimento a distância</span>
+        </div>
+      </div>
+      <div class="blocks" aria-hidden="false">
+        <div class="blk b1"></div>
+        <div class="blk b2"></div>
+        <div class="blk b3"></div>
+        <div class="blk b4"></div>
+        <figure class="blk b5" style="margin:0">
+          <span class="law">Lei 12.764/2012, art. 1º, § 2º</span>
+          <blockquote>A pessoa autista é considerada pessoa com deficiência, para todos os efeitos legais.</blockquote>
+          <cite>Isso vale para criança, jovem e adulto.</cite>
+        </figure>
+        <div class="blk b6"></div>
+        <div class="blk b7"></div>
+        <div class="blk b8"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="dores-titulo">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Você se identifica?</span>
+        <h2 id="dores-titulo">Frases que muitas mães e pais de autistas já ouviram</h2>
+        <p>Se alguma delas aconteceu com a sua família, vale buscar orientação. Em muitos casos, a resposta que você recebeu não é a última palavra.</p>
+      </div>
+      <div class="pains">
+        <article class="pain">
+          <span class="tag">BPC</span>
+          <q>O INSS negou o benefício.</q>
+          <p>A negativa pode vir de Cadastro Único desatualizado ou de renda calculada errado. Na Justiça há perícia e estudo social.</p>
+        </article>
+        <article class="pain">
+          <span class="tag">Escola</span>
+          <q>Ele só pode ficar duas horas, mãe.</q>
+          <p>A lei garante matrícula, permanência no horário normal e acompanhante em sala quando o laudo indica.</p>
+        </article>
+        <article class="pain">
+          <span class="tag">Saúde</span>
+          <q>A terapia só tem vaga para o ano que vem.</q>
+          <p>O tratamento indicado pelo médico é direito. A demora prejudica o desenvolvimento e pode ser levada à Justiça com urgência.</p>
+        </article>
+        <article class="pain">
+          <span class="tag">Plano de saúde</span>
+          <q>Seu plano cobre só 12 sessões por ano.</q>
+          <p>Para autismo, as regras da ANS garantem a terapia indicada pelo médico sem limite de sessões.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band rights-band" id="direitos" aria-labelledby="direitos-titulo">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Onde podemos ajudar</span>
+        <h2 id="direitos-titulo">Os direitos que mais mudam a vida da família</h2>
+        <p>Cada caso é analisado com os documentos da família. Abaixo estão as situações que mais atendemos.</p>
+      </div>
+      <div class="rights">
+        <article class="right">
+          <div class="right-icon ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
+          <h3>BPC/LOAS</h3>
+          <p>Um salário mínimo por mês para a pessoa autista de família de baixa renda. Não precisa ter contribuído para o INSS.</p>
+          <ul>
+            <li>Pedido novo, negado ou cortado</li>
+            <li>Cadastro Único em dia é obrigatório</li>
+            <li>Gastos com o tratamento entram na análise</li>
+          </ul>
+          <p class="law-ref">Lei 8.742/1993, art. 20</p>
+        </article>
+        <article class="right">
+          <div class="right-icon ic-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div>
+          <h3>Escola e educação</h3>
+          <p>Escola pública ou particular não pode recusar o aluno autista nem cobrar a mais por isso.</p>
+          <ul>
+            <li>Matrícula e horário completo</li>
+            <li>Acompanhante especializado em sala</li>
+            <li>Adaptação de atividades e provas</li>
+          </ul>
+          <p class="law-ref">Lei 12.764/2012 e Lei 13.146/2015</p>
+        </article>
+        <article class="right">
+          <div class="right-icon ic-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-7-10.2A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7 2.8C19 16.6 12 21 12 21Z"/></svg></div>
+          <h3>Terapias pelo SUS</h3>
+          <p>Fono, terapia ocupacional, psicologia e consultas indicadas pelo médico, quando o poder público não oferece ou demora demais.</p>
+          <ul>
+            <li>Fila longa na regulação</li>
+            <li>Viagem para outra cidade sem apoio</li>
+            <li>Remédios receitados e não fornecidos</li>
+          </ul>
+          <p class="law-ref">Constituição, art. 196, e Lei 12.764/2012</p>
+        </article>
+        <article class="right">
+          <div class="right-icon ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Plano de saúde</h3>
+          <p>Negativa de terapia, limite de sessões, falta de profissional na rede ou cancelamento do contrato no meio do tratamento.</p>
+          <ul>
+            <li>ABA, fono e terapia ocupacional</li>
+            <li>Reembolso quando a rede não atende</li>
+            <li>Vale para plano pago pela empresa</li>
+          </ul>
+          <p class="law-ref">Lei 9.656/1998 e RN ANS 539/2022</p>
+        </article>
+        <article class="right">
+          <div class="right-icon ic-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14M6 17l1.5-5h9L18 17"/><path d="M8.5 12l1.5-4h4l1.5 4"/><circle cx="8" cy="18.5" r="1.5"/><circle cx="16" cy="18.5" r="1.5"/></svg></div>
+          <h3>Carro: IPI, ICMS e IPVA</h3>
+          <p>Isenção de impostos na compra do carro e no IPVA para a família da pessoa autista, com limite de valor do veículo.</p>
+          <ul>
+            <li>Pedido feito antes da compra</li>
+            <li>Laudo no modelo de cada órgão</li>
+            <li>Regras do IPVA variam por estado</li>
+          </ul>
+          <p class="law-ref">Lei 8.989/1995, convênio CONFAZ e lei estadual</p>
+        </article>
+        <article class="right">
+          <div class="right-icon ic-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+          <h3>IPTU da casa</h3>
+          <p>Alguns municípios dão isenção de IPTU para a família de pessoa com deficiência. Verificamos a lei da sua cidade.</p>
+          <ul>
+            <li>Depende da lei de cada município</li>
+            <li>Casa onde a pessoa autista mora</li>
+            <li>Pedido feito na prefeitura</li>
+          </ul>
+          <p class="law-ref">Lei municipal de cada cidade</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="como-funciona" aria-labelledby="como-titulo">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Como funciona</span>
+        <h2 id="como-titulo">Você não precisa ir dez vezes à cidade</h2>
+        <p>A maior parte do atendimento é feita pelo WhatsApp. Explicamos cada passo com palavras simples e avisamos você de cada novidade no processo.</p>
+      </div>
+      <ol class="steps" style="list-style:none;margin:0;padding:0">
+        <li class="step">
+          <h3>Conversa</h3>
+          <p>Você conta o que está acontecendo por mensagem ou áudio. Entendemos a situação da família.</p>
+        </li>
+        <li class="step">
+          <h3>Documentos</h3>
+          <p>Enviamos a lista do que separar e analisamos o laudo, a negativa e os comprovantes.</p>
+        </li>
+        <li class="step">
+          <h3>Pedido</h3>
+          <p>Fazemos o pedido no órgão ou entramos na Justiça. Em saúde e escola, com pedido de urgência quando cabe.</p>
+        </li>
+        <li class="step">
+          <h3>Acompanhamento</h3>
+          <p>Acompanhamos perícia, audiência e prazos até a decisão, sempre mantendo você informada.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band docs-band" id="documentos" aria-labelledby="docs-titulo">
+    <div class="wrap docs">
+      <div class="docs-intro">
+        <span class="eyebrow">Lista de documentos</span>
+        <h2 id="docs-titulo">O que separar antes de falar com a gente</h2>
+        <p>Escolha o assunto e vá marcando o que você já tem. Depois copie a lista para enviar no WhatsApp ou mostrar no CRAS.</p>
+        <div class="tabs" role="tablist" aria-label="Assunto">
+          <button class="tab" role="tab" id="tab-bpc" data-key="bpc" aria-selected="true">BPC</button>
+          <button class="tab" role="tab" id="tab-escola" data-key="escola" aria-selected="false">Escola</button>
+          <button class="tab" role="tab" id="tab-sus" data-key="sus" aria-selected="false">SUS</button>
+          <button class="tab" role="tab" id="tab-plano" data-key="plano" aria-selected="false">Plano de saúde</button>
+          <button class="tab" role="tab" id="tab-carro" data-key="carro" aria-selected="false">Carro</button>
+          <button class="tab" role="tab" id="tab-iptu" data-key="iptu" aria-selected="false">IPTU</button>
+        </div>
+      </div>
+      <div class="checklist" role="tabpanel" aria-labelledby="tab-bpc" id="painel-docs">
+        <div class="check-head">
+          <h3 id="check-title">BPC/LOAS</h3>
+          <span class="progress" id="check-progress">0 de 0 separados</span>
+        </div>
+        <div class="bar" aria-hidden="true"><span id="check-bar"></span></div>
+        <div class="group-label">Para todos os casos</div>
+        <ul class="items" id="list-base"></ul>
+        <div class="group-label" id="specific-label">Específicos do BPC</div>
+        <ul class="items" id="list-specific"></ul>
+        <div class="check-actions">
+          <button class="btn btn-red" type="button" id="copy-list">Copiar lista</button>
+          <button class="btn btn-ghost" type="button" id="clear-list">Desmarcar tudo</button>
+          <span class="copy-note" id="copy-note" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="adulto-titulo">
+    <div class="wrap adult">
+      <div class="adult-text">
+        <span class="eyebrow">Para adultos autistas</span>
+        <h2 id="adulto-titulo">Descobriu o autismo depois de adulto?</h2>
+        <p>Muita gente passa a vida ouvindo que é difícil ou diferente e só recebe o diagnóstico depois dos 30. A lei vale em qualquer idade, e o diagnóstico pode abrir portas que você nem sabia que existiam.</p>
+        <p>Atendemos com mensagens escritas, explicação passo a passo e horário combinado com antecedência, sem pressa e sem pressão.</p>
+      </div>
+      <div class="adult-card">
+        <h3>Direitos que podem valer para você</h3>
+        <ul>
+          <li>BPC, quando a renda da família é baixa</li>
+          <li>Atendimento prioritário em filas, bancos e órgãos públicos</li>
+          <li>Carteira de identificação da pessoa autista (CIPTEA)</li>
+          <li>Adaptações no trabalho e proteção contra discriminação</li>
+          <li>Passe livre interestadual para quem tem baixa renda</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band faq-band" id="duvidas" aria-labelledby="duvidas-titulo">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Dúvidas comuns</span>
+        <h2 id="duvidas-titulo">Perguntas que as famílias sempre fazem</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>O INSS já negou. Ainda dá para fazer alguma coisa?</summary>
+          <div class="answer">Sim, em muitos casos. A negativa do INSS é o que permite levar o pedido à Justiça, onde a criança passa por perícia médica e a família por estudo social. Guarde a carta de indeferimento ou o número do protocolo.</div>
+        </details>
+        <details>
+          <summary>Não tenho condições de pagar advogado. Posso conversar mesmo assim?</summary>
+          <div class="answer">Pode. Na primeira conversa explicamos, de forma clara e por escrito, como funcionam os honorários no seu tipo de caso, antes de qualquer decisão da sua parte.</div>
+        </details>
+        <details>
+          <summary>Meu filho é autismo nível 1. Ele tem direito ao BPC?</summary>
+          <div class="answer">O nível sozinho não decide. O que conta são as dificuldades no dia a dia (comunicação, comportamento, autonomia, escola) e a renda da família. Por isso o laudo precisa descrever o que a criança não consegue fazer sozinha, e não apenas o CID.</div>
+        </details>
+        <details>
+          <summary>Eu trabalho. Então meu filho perde o direito ao BPC?</summary>
+          <div class="answer">Não automaticamente. O cálculo considera a renda dividida por todas as pessoas da casa, e os gastos com remédios, terapias e transporte podem pesar na análise. Cada caso precisa ser olhado com os comprovantes.</div>
+        </details>
+        <details>
+          <summary>Quanto tempo demora?</summary>
+          <div class="answer">Depende do tipo de pedido e da vara. Em casos de saúde e escola é possível pedir uma decisão de urgência logo no início. No BPC, se o direito for reconhecido, os valores atrasados são contados desde o pedido feito no INSS.</div>
+        </details>
+        <details>
+          <summary>Moro longe de Carutapera. Vocês atendem?</summary>
+          <div class="answer">Sim. O atendimento é feito pelo WhatsApp e os processos são eletrônicos. Atendemos famílias de Carutapera, Cândido Mendes, Godofredo Viana, Luís Domingues, Maracaçumé e região.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="wrap about">
+      <div class="badge-card">
+        <img class="portrait" src="foto-dra-sueli.jpg" alt="Dra. Sueli Pereira Dias, de blazer vermelho, sorrindo" width="410" height="512" loading="lazy">
+        <h3>Dra. Sueli Pereira Dias</h3>
+        <dl>
+          <dt>OAB</dt><dd>OAB/MA nº 6.834</dd>
+          <dt>Escritório</dt><dd>ScD Advocacia &amp; Consultoria Jurídica</dd>
+          <dt>Cidade</dt><dd>Carutapera, Maranhão</dd>
+          <dt>Atua em</dt><dd>Justiça Estadual (TJMA), Justiça Federal (TRF-1) e Justiça do Trabalho (TRT-16)</dd>
+        </dl>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">Quem atende você</span>
+        <h2 id="sobre-titulo">Advocacia de perto, que fala a sua língua</h2>
+        <p>A ScD Advocacia atende famílias do interior do Maranhão que enfrentam INSS, escola, prefeitura e plano de saúde para garantir o que a lei já prevê. Conhecemos as varas, os peritos e as dificuldades da região.</p>
+        <p>Além dos direitos da pessoa autista, o escritório também atua em:</p>
+        <div class="areas">
+          <span>Previdenciário</span><span>Família</span><span>Consumidor</span><span>Trabalhista</span><span>Cível</span><span>Criminal</span><span>Direito público</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band contact-band" id="contato" aria-labelledby="contato-titulo">
+    <div class="wrap contact">
+      <div class="contact-text">
+        <h2 id="contato-titulo">Conte o que está acontecendo com a sua família</h2>
+        <p>Preencha o formulário, ou mande uma mensagem ou um áudio pelo WhatsApp. Respondemos com o próximo passo e a lista do que separar.</p>
+        <div class="contact-box">
+          <div class="contact-row"><span>WhatsApp</span><strong id="wa-number">(98) 98534-7895</strong></div>
+          <div class="contact-row"><span>E-mail</span><strong><a id="email-link" href="mailto:advadvocacia82@gmail.com">advadvocacia82@gmail.com</a></strong></div>
+          <div class="contact-row"><span>Endereço</span><strong>Carutapera, Maranhão</strong></div>
+          <a class="btn btn-red js-wa" href="#contato">Abrir conversa no WhatsApp</a>
+        </div>
+      </div>
+      <form class="contact-box contact-form" id="contact-form" novalidate aria-labelledby="form-titulo">
+        <h3 id="form-titulo">Envie sua mensagem</h3>
+        <p class="form-note">Escreva do seu jeito. A mensagem fica pronta no WhatsApp ou no e-mail, e você confere antes de mandar. Nada fica guardado neste site.</p>
+        <div class="form-grid">
+          <div class="field field-full">
+            <label for="f-nome">Seu nome</label>
+            <input id="f-nome" name="nome" type="text" autocomplete="name" maxlength="120" required aria-describedby="erro-nome">
+            <span class="field-error" id="erro-nome"></span>
+          </div>
+          <div class="field">
+            <label for="f-telefone">WhatsApp com DDD</label>
+            <input id="f-telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(98) 90000-0000" maxlength="16" required aria-describedby="erro-telefone">
+            <span class="field-error" id="erro-telefone"></span>
+          </div>
+          <div class="field">
+            <label for="f-cidade">Cidade <small>(opcional)</small></label>
+            <input id="f-cidade" name="cidade" type="text" autocomplete="address-level2" maxlength="80">
+          </div>
+          <div class="field field-full">
+            <label for="f-assunto">Assunto</label>
+            <select id="f-assunto" name="assunto" required aria-describedby="erro-assunto">
+              <option value="">Escolha o assunto</option>
+            </select>
+            <span class="field-error" id="erro-assunto"></span>
+          </div>
+          <div class="field field-full">
+            <label for="f-mensagem">O que está acontecendo?</label>
+            <textarea id="f-mensagem" name="mensagem" maxlength="1000" placeholder="Exemplo: o INSS negou o BPC do meu filho." required aria-describedby="erro-mensagem"></textarea>
+            <span class="field-error" id="erro-mensagem"></span>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-red" type="submit" name="canal" value="whatsapp">Enviar pelo WhatsApp</button>
+          <button class="btn btn-ghost" type="submit" name="canal" value="email">Enviar por e-mail</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>ScD Advocacia &amp; Consultoria Jurídica</strong> · Dra. Sueli Pereira Dias, OAB/MA nº 6.834 · Carutapera/MA</p>
+    <p>Conteúdo de caráter informativo, conforme o Provimento 205/2021 do Conselho Federal da OAB. As informações não substituem a análise individual do seu caso.</p>
+  </div>
+</footer>
+
+<a class="wa-float js-wa" href="#contato" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script>
+(function () {
+  // Número do WhatsApp do escritório: só dígitos, com DDI 55 e DDD. Ex.: "5598900000000".
+  var WHATSAPP = "5598985347895";
+  var WA_TEXT = "Olá! Vim pelo site e quero saber sobre os direitos da pessoa autista.";
+
+  function waUrl(text) { return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text); }
+  function onlyDigits(value) { return value.replace(/\D/g, ""); }
+  // Celular: (98) 98534-7895. Fixo: (98) 3456-7890.
+  function formatPhone(digits) {
+    var d = digits.slice(0, 11);
+    if (d.length <= 2) return d ? "(" + d : "";
+    var split = d.length === 11 ? 7 : 6;
+    if (d.length <= split) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+    return "(" + d.slice(0, 2) + ") " + d.slice(2, split) + "-" + d.slice(split);
+  }
+
+  if (WHATSAPP) {
+    document.querySelectorAll(".js-wa").forEach(function (a) {
+      a.href = waUrl(WA_TEXT); a.target = "_blank"; a.rel = "noopener";
+    });
+    document.getElementById("wa-number").textContent = formatPhone(WHATSAPP.replace(/^55/, ""));
+  }
+
+  var BASE = [
+    "RG e CPF da pessoa autista e do responsável",
+    "Certidão de nascimento ou de casamento",
+    "Comprovante de residência",
+    "Laudo médico atualizado, com CID e descrição das limitações",
+    "CIPTEA (carteirinha do autista), se tiver",
+    "Senha do gov.br",
+    "03 últimos extratos bancários",
+    "Carteira de trabalho",
+    "Título de eleitor"
+  ];
+  var TOPICS = {
+    bpc: { title: "BPC/LOAS", label: "Específicos do BPC", items: [
+      "Folha resumo do Cadastro Único atualizado",
+      "Documentos de todas as pessoas que moram na casa",
+      "Comprovantes de renda de cada morador",
+      "Carta de negativa do INSS ou número do protocolo",
+      "Relatórios dos terapeutas e da escola",
+      "Comprovantes de gastos com remédios, fraldas, transporte e terapias"
+    ]},
+    escola: { title: "Escola e educação", label: "Específicos da escola", items: [
+      "Comprovante de matrícula ou da recusa",
+      "Nome da escola e se é municipal, estadual ou particular",
+      "Mensagens ou bilhetes da escola negando cuidador ou reduzindo o horário",
+      "Laudo indicando a necessidade de acompanhante em sala",
+      "Boletins e relatórios da escola"
+    ]},
+    sus: { title: "Terapias pelo SUS", label: "Específicos do SUS", items: [
+      "Receita das terapias com quantas horas por semana",
+      "Encaminhamentos e comprovantes de espera na regulação",
+      "Resposta da Secretaria de Saúde, ou protocolo sem resposta",
+      "Receitas e orçamentos de remédios"
+    ]},
+    plano: { title: "Plano de saúde", label: "Específicos do plano", items: [
+      "Carteirinha do plano",
+      "Contrato, ou declaração do plano da empresa",
+      "Boletos ou contracheque com o desconto do plano",
+      "Negativa por escrito ou número do protocolo",
+      "Receita com o método, os profissionais e as horas por semana",
+      "Recibos de terapias pagas por fora"
+    ]},
+    carro: { title: "Carro: IPI, ICMS e IPVA", label: "Específicos do carro", items: [
+      "Documento do carro (CRLV), se já tiver",
+      "Nota fiscal, ou orçamento da concessionária",
+      "Laudo no modelo pedido pela Receita Federal e pela SEFAZ",
+      "Comprovante de quem vai ficar como dono do carro"
+    ]},
+    iptu: { title: "IPTU da casa", label: "Específicos do IPTU", items: [
+      "Carnê ou certidão do imóvel",
+      "Escritura, contrato ou declaração de posse",
+      "Comprovante de que a pessoa autista mora na casa"
+    ]}
+  };
+
+  var current = "bpc";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem("scd-docs") || "{}") || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem("scd-docs", JSON.stringify(state)); } catch (e) {} }
+
+  function makeItems(listEl, items, prefix) {
+    listEl.innerHTML = "";
+    items.forEach(function (text, i) {
+      var id = prefix + "-" + i;
+      var li = document.createElement("li");
+      var label = document.createElement("label");
+      var input = document.createElement("input");
+      input.type = "checkbox"; input.id = "doc-" + id; input.checked = !!state[id];
+      input.addEventListener("change", function () { state[id] = input.checked; save(); update(); });
+      var span = document.createElement("span"); span.textContent = text;
+      label.appendChild(input); label.appendChild(span); li.appendChild(label); listEl.appendChild(li);
+    });
+  }
+  function update() {
+    var boxes = document.querySelectorAll("#painel-docs input[type=checkbox]");
+    var done = 0; boxes.forEach(function (b) { if (b.checked) done++; });
+    document.getElementById("check-progress").textContent = done + " de " + boxes.length + " separados";
+    document.getElementById("check-bar").style.width = (boxes.length ? (done / boxes.length) * 100 : 0) + "%";
+  }
+  function render() {
+    var t = TOPICS[current];
+    document.getElementById("check-title").textContent = t.title;
+    document.getElementById("specific-label").textContent = t.label;
+    document.getElementById("painel-docs").setAttribute("aria-labelledby", "tab-" + current);
+    makeItems(document.getElementById("list-base"), BASE, "base");
+    makeItems(document.getElementById("list-specific"), t.items, current);
+    document.getElementById("copy-note").textContent = "";
+    update();
+  }
+  document.querySelectorAll(".tab").forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      current = tab.dataset.key;
+      document.querySelectorAll(".tab").forEach(function (t) { t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
+      render();
+    });
+  });
+  document.getElementById("clear-list").addEventListener("click", function () {
+    document.querySelectorAll("#painel-docs input[type=checkbox]").forEach(function (b) {
+      b.checked = false; state[b.id.replace(/^doc-/, "")] = false;
+    });
+    save(); update();
+  });
+  document.getElementById("copy-list").addEventListener("click", function () {
+    var t = TOPICS[current];
+    var lines = ["Documentos para " + t.title + " (ScD Advocacia)", ""];
+    document.querySelectorAll("#painel-docs label").forEach(function (l) {
+      var cb = l.querySelector("input");
+      lines.push((cb.checked ? "[x] " : "[ ] ") + l.querySelector("span").textContent);
+    });
+    var text = lines.join("\n");
+    var note = document.getElementById("copy-note");
+    function fallback() {
+      var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", "");
+      ta.style.position = "absolute"; ta.style.left = "-9999px"; document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      note.textContent = ok ? "Lista copiada." : "Não foi possível copiar. Selecione os itens e copie manualmente.";
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { note.textContent = "Lista copiada."; }, fallback);
+    } else { fallback(); }
+  });
+  render();
+
+  // Formulário de contato: não há servidor; a mensagem é montada aqui e aberta no WhatsApp ou no e-mail do visitante.
+  var form = document.getElementById("contact-form");
+  var status = document.getElementById("form-status");
+  var EMAIL = document.getElementById("email-link").textContent.trim();
+  var RULES = {
+    nome: function (v) { return v.length >= 2 ? "" : "Escreva seu nome."; },
+    telefone: function (v) { return /^[1-9]{2}(9\d{8}|\d{8})$/.test(onlyDigits(v)) ? "" : "Informe o número com DDD. Exemplo: (98) 90000-0000."; },
+    assunto: function (v) { return v ? "" : "Escolha um assunto."; },
+    mensagem: function (v) { return v ? "" : "Conte em poucas palavras o que está acontecendo."; }
+  };
+
+  Object.keys(TOPICS).concat("outro").forEach(function (key) {
+    var option = document.createElement("option");
+    option.textContent = key === "outro" ? "Outro assunto ou não sei" : TOPICS[key].title;
+    option.value = option.textContent;
+    form.elements.assunto.appendChild(option);
+  });
+
+  function validateField(name) {
+    var field = form.elements[name];
+    var error = RULES[name](field.value.trim());
+    document.getElementById("erro-" + name).textContent = error;
+    if (error) { field.setAttribute("aria-invalid", "true"); } else { field.removeAttribute("aria-invalid"); }
+    return !error;
+  }
+  function showStatus(text, link, isError) {
+    status.textContent = text;
+    status.classList.toggle("is-error", !!isError);
+    if (link) {
+      var a = document.createElement("a");
+      a.href = link.href; a.textContent = link.text;
+      if (link.newTab) { a.target = "_blank"; a.rel = "noopener"; }
+      status.appendChild(document.createTextNode(" "));
+      status.appendChild(a);
+    }
+  }
+  function buildMessage() {
+    var el = form.elements;
+    var city = el.cidade.value.trim();
+    return [
+      "Olá! Vim pelo site da ScD Advocacia.",
+      "",
+      "Nome: " + el.nome.value.trim(),
+      "WhatsApp: " + el.telefone.value.trim()
+    ].concat(city ? ["Cidade: " + city] : [], [
+      "Assunto: " + el.assunto.value,
+      "",
+      el.mensagem.value.trim()
+    ]).join("\n");
+  }
+  function sendByWhatsApp(text) {
+    var url = waUrl(text);
+    var opened = window.open(url, "_blank");
+    if (opened) opened.opener = null;
+    showStatus("Falta um passo: confira a mensagem no WhatsApp e toque em enviar.", { href: url, text: "O WhatsApp não abriu? Toque aqui.", newTab: true });
+  }
+  function sendByEmail(text) {
+    var url = "mailto:" + EMAIL
+      + "?subject=" + encodeURIComponent("Contato pelo site: " + form.elements.assunto.value)
+      + "&body=" + encodeURIComponent(text.replace(/\n/g, "\r\n"));
+    var opener = document.createElement("a");
+    opener.href = url;
+    opener.click();
+    showStatus("Falta um passo: confira a mensagem no seu aplicativo de e-mail e envie. Se nada abriu, escreva para", { href: "mailto:" + EMAIL, text: EMAIL });
+  }
+
+  form.elements.telefone.addEventListener("input", function () {
+    var input = form.elements.telefone;
+    if (input.selectionStart === input.value.length) input.value = formatPhone(onlyDigits(input.value));
+  });
+  Object.keys(RULES).forEach(function (name) {
+    var field = form.elements[name];
+    field.addEventListener(field.tagName === "SELECT" ? "change" : "input", function () {
+      if (field.hasAttribute("aria-invalid")) validateField(name);
+    });
+  });
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var invalid = Object.keys(RULES).filter(function (name) { return !validateField(name); });
+    if (invalid.length) {
+      showStatus("Confira os campos destacados antes de enviar.", null, true);
+      form.elements[invalid[0]].focus();
+      return;
+    }
+    var viaEmail = event.submitter && event.submitter.value === "email";
+    if (viaEmail) { sendByEmail(buildMessage()); } else { sendByWhatsApp(buildMessage()); }
+  });
+})();
+</script>
+
+</body></html>
